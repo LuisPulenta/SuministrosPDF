@@ -6,4 +6,23 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="DSSuministrosPDF.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>DSSuministrosPDF.xsd</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="DSSuministrosPDF.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSSuministrosPDF.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
 </Project>

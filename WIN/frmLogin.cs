@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CAD;
+using System;
 using System.Windows.Forms;
 
 namespace WIN
@@ -33,9 +34,24 @@ namespace WIN
                 txtClave.Focus();
                 return;
             }
+
+            if (!CADUsuarios.ValidaUsuario(txtUsuario.Text, txtClave.Text))
+            {
+                MessageBox.Show("Usuario o Clave no válidos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                txtUsuario.Text = string.Empty;
+                txtClave.Text = string.Empty;
+                txtUsuario.Focus();
+                return;
+            }
+
+            frmPrincipal miForm = new frmPrincipal();
+            miForm.Show();
+            this.Hide();
         }
 
-        private void btnCancelar_Click_1(object sender, EventArgs e)
+    
+
+    private void btnCancelar_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
