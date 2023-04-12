@@ -1,10 +1,16 @@
-﻿using System;
+﻿using iTextSharp.text;
+using iTextSharp.text.pdf;
+using Sistema.DSSistemaTableAdapters;
+using System;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Sistema
 {
     public partial class frmSuministros : Form
     {
+
+        private static readonly string _dataDir = "..\\Samples";
         public frmSuministros()
         {
             InitializeComponent();
@@ -35,7 +41,7 @@ namespace Sistema
 
         private void ActualizarDatos()
         {
-           
+            ObrasNuevoSuministrosTableAdapter obrasNuevoSuministrosTableAdapter = new ObrasNuevoSuministrosTableAdapter();
 
 
             string dia = dtpFecha.Value.Day.ToString();
@@ -50,8 +56,7 @@ namespace Sistema
             }
             string ano = dtpFecha.Value.Year.ToString();
             string fecha = dia + '-' + mes + '-' + ano;
-
-            this.obrasNuevoSuministrosTableAdapter3.FillByFecha(this.dSSistema.ObrasNuevoSuministros,fecha);
+            obrasNuevoSuministrosTableAdapter.FillByFecha(this.dSSistema.ObrasNuevoSuministros,fecha);
             dgvDatos.AutoResizeColumns();
         }
 
@@ -136,6 +141,113 @@ namespace Sistema
 
 
 
+        }
+
+        private void btnGenerarPDF_Click(object sender, EventArgs e)
+        {
+            if (txtNroSuministro.Text == "")
+            {
+                MessageBox.Show("Debe seleccionar un Suministro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            //**************************************************************************************************************
+
+            String Ruta = "C://Rowing/";
+            String NombreArchivo = "Suministro N° " + txtNroSuministro.Text + ".pdf";
+
+            // Creamos el documento con el tamaño de página tradicional
+            Document doc = new Document(PageSize.A4);
+            // Indicamos donde vamos a guardar el documento
+            PdfWriter writer = PdfWriter.GetInstance(doc,
+                                        new FileStream(@Ruta+NombreArchivo, FileMode.Create));
+
+            // Abrimos el archivo
+            doc.Open();
+
+            // Creamos el tipo de Font que vamos utilizar
+            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
+
+            // Creamos la imagen y le ajustamos el tamaño
+            iTextSharp.text.Image imagen = iTextSharp.text.Image.GetInstance("C://Rowing//logo.png");
+            imagen.BorderWidth = 0;
+            imagen.Alignment = Element.ALIGN_RIGHT;
+            float percentage = 0.0f;
+            percentage = 150 / imagen.Width;
+            imagen.ScalePercent(percentage * 100);
+
+            // Insertamos la imagen en el documento
+            doc.Add(imagen);
+            doc.Add(Chunk.NEWLINE);
+
+            // Escribimos el encabezamiento en el documento
+            doc.Add(new Paragraph("SUMINISTRO N° " + txtNroSuministro.Text));
+            doc.Add(Chunk.NEWLINE);
+
+
+
+            Paragraph title = new Paragraph();
+            title.Font = FontFactory.GetFont(FontFactory.TIMES, 18f, BaseColor.BLUE);
+            title.Add("Hola Mundo!!");
+            doc.Add(title);
+
+
+            doc.Add(new Paragraph("Hola Mundo!!"));
+            doc.Add(new Paragraph("Parrafo 1"));
+            doc.Add(new Paragraph("Parrafo 2"));
+
+            // Creamos una tabla que contendrá el nombre, apellido y país
+            // de nuestros visitante.
+            PdfPTable tblPrueba = new PdfPTable(3);
+            tblPrueba.WidthPercentage = 100;
+
+            // Configuramos el título de las columnas de la tabla
+            PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", _standardFont));
+            clNombre.BorderWidth = 0;
+            clNombre.BorderWidthBottom = 0.75f;
+
+            PdfPCell clApellido = new PdfPCell(new Phrase("Apellido", _standardFont));
+            clApellido.BorderWidth = 0;
+            clApellido.BorderWidthBottom = 0.75f;
+
+            PdfPCell clPais = new PdfPCell(new Phrase("País", _standardFont));
+            clPais.BorderWidth = 0;
+            clPais.BorderWidthBottom = 0.75f;
+
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clNombre);
+            tblPrueba.AddCell(clApellido);
+            tblPrueba.AddCell(clPais);
+
+            // Llenamos la tabla con información
+            clNombre = new PdfPCell(new Phrase("Roberto", _standardFont));
+            clNombre.BorderWidth = 0;
+
+            clApellido = new PdfPCell(new Phrase("Torres", _standardFont));
+            clApellido.BorderWidth = 0;
+
+            clPais = new PdfPCell(new Phrase("Puerto Rico", _standardFont));
+            clPais.BorderWidth = 0;
+
+            // Añadimos las celdas a la tabla
+            tblPrueba.AddCell(clNombre);
+            tblPrueba.AddCell(clApellido);
+            tblPrueba.AddCell(clPais);
+
+
+            // Finalmente, añadimos la tabla al documento PDF y cerramos el documento
+            doc.Add(tblPrueba);
+
+            
+
+
+            doc.Close();
+            writer.Close();
+
+
+
+            //**************************************************************************************************************
+
+            MessageBox.Show("PDF grabado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

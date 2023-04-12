@@ -38,35 +38,18 @@ namespace Sistema
             this.dtpFecha = new System.Windows.Forms.DateTimePicker();
             this.dSSistema = new Sistema.DSSistema();
             this.obrasNuevoSuministrosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.obrasNuevoSuministrosTableAdapter3 = new Sistema.DSSistemaTableAdapters.ObrasNuevoSuministrosTableAdapter();
             this.tableAdapterManager = new Sistema.DSSistemaTableAdapters.TableAdapterManager();
             this.obrasNuevoSuministrosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.dgvDatos = new System.Windows.Forms.DataGridView();
-            this.pbDNIFrente = new System.Windows.Forms.PictureBox();
-            this.txtNroSuministro = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.pbDNIDorso = new System.Windows.Forms.PictureBox();
-            this.pbFirma = new System.Windows.Forms.PictureBox();
-            this.pbAntes2 = new System.Windows.Forms.PictureBox();
-            this.pbAntes1 = new System.Windows.Forms.PictureBox();
-            this.pbDespues2 = new System.Windows.Forms.PictureBox();
-            this.pbDespues1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -103,6 +86,23 @@ namespace Sistema
             this.dataGridViewTextBoxColumn37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pbDNIFrente = new System.Windows.Forms.PictureBox();
+            this.txtNroSuministro = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.pbDNIDorso = new System.Windows.Forms.PictureBox();
+            this.pbFirma = new System.Windows.Forms.PictureBox();
+            this.pbAntes2 = new System.Windows.Forms.PictureBox();
+            this.pbAntes1 = new System.Windows.Forms.PictureBox();
+            this.pbDespues2 = new System.Windows.Forms.PictureBox();
+            this.pbDespues1 = new System.Windows.Forms.PictureBox();
+            this.btnGenerarPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dSSistema)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obrasNuevoSuministrosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obrasNuevoSuministrosBindingNavigator)).BeginInit();
@@ -145,13 +145,10 @@ namespace Sistema
             this.obrasNuevoSuministrosBindingSource.DataMember = "ObrasNuevoSuministros";
             this.obrasNuevoSuministrosBindingSource.DataSource = this.dSSistema;
             // 
-            // obrasNuevoSuministrosTableAdapter3
-            // 
-            this.obrasNuevoSuministrosTableAdapter3.ClearBeforeFill = true;
-            // 
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.Connection = null;
             this.tableAdapterManager.UpdateOrder = Sistema.DSSistemaTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // obrasNuevoSuministrosBindingNavigator
@@ -181,6 +178,13 @@ namespace Sistema
             this.obrasNuevoSuministrosBindingNavigator.Size = new System.Drawing.Size(1340, 27);
             this.obrasNuevoSuministrosBindingNavigator.TabIndex = 4;
             this.obrasNuevoSuministrosBindingNavigator.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
+            this.bindingNavigatorCountItem.Text = "de {0}";
+            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -215,16 +219,9 @@ namespace Sistema
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "Posición actual";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
-            this.bindingNavigatorCountItem.Text = "de {0}";
-            this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
             // 
             // bindingNavigatorMoveNextItem
@@ -247,7 +244,7 @@ namespace Sistema
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
             // 
             // dgvDatos
@@ -322,161 +319,6 @@ namespace Sistema
             this.dgvDatos.Size = new System.Drawing.Size(1316, 297);
             this.dgvDatos.TabIndex = 4;
             this.dgvDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDatos_CellContentClick);
-            // 
-            // pbDNIFrente
-            // 
-            this.pbDNIFrente.Location = new System.Drawing.Point(75, 418);
-            this.pbDNIFrente.Name = "pbDNIFrente";
-            this.pbDNIFrente.Size = new System.Drawing.Size(224, 150);
-            this.pbDNIFrente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbDNIFrente.TabIndex = 5;
-            this.pbDNIFrente.TabStop = false;
-            // 
-            // txtNroSuministro
-            // 
-            this.txtNroSuministro.BackColor = System.Drawing.Color.SkyBlue;
-            this.txtNroSuministro.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNroSuministro.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNroSuministro.ForeColor = System.Drawing.Color.Blue;
-            this.txtNroSuministro.Location = new System.Drawing.Point(109, 374);
-            this.txtNroSuministro.Name = "txtNroSuministro";
-            this.txtNroSuministro.ReadOnly = true;
-            this.txtNroSuministro.Size = new System.Drawing.Size(108, 23);
-            this.txtNroSuministro.TabIndex = 6;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(24, 374);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 23);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Nº SUM:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(151, 396);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 19);
-            this.label3.TabIndex = 9;
-            this.label3.Text = "DNI Frente";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(151, 594);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 19);
-            this.label4.TabIndex = 10;
-            this.label4.Text = "DNI Dorso";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(385, 396);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 19);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "Firma Cliente";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(647, 594);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 19);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Antes 2";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(647, 396);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 19);
-            this.label8.TabIndex = 13;
-            this.label8.Text = "Antes 1";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(887, 594);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 19);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Después 2";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(887, 396);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 19);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Después 1";
-            // 
-            // pbDNIDorso
-            // 
-            this.pbDNIDorso.Location = new System.Drawing.Point(75, 616);
-            this.pbDNIDorso.Name = "pbDNIDorso";
-            this.pbDNIDorso.Size = new System.Drawing.Size(224, 150);
-            this.pbDNIDorso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbDNIDorso.TabIndex = 17;
-            this.pbDNIDorso.TabStop = false;
-            // 
-            // pbFirma
-            // 
-            this.pbFirma.Location = new System.Drawing.Point(324, 418);
-            this.pbFirma.Name = "pbFirma";
-            this.pbFirma.Size = new System.Drawing.Size(224, 150);
-            this.pbFirma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbFirma.TabIndex = 18;
-            this.pbFirma.TabStop = false;
-            // 
-            // pbAntes2
-            // 
-            this.pbAntes2.Location = new System.Drawing.Point(567, 616);
-            this.pbAntes2.Name = "pbAntes2";
-            this.pbAntes2.Size = new System.Drawing.Size(224, 150);
-            this.pbAntes2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAntes2.TabIndex = 21;
-            this.pbAntes2.TabStop = false;
-            // 
-            // pbAntes1
-            // 
-            this.pbAntes1.Location = new System.Drawing.Point(567, 418);
-            this.pbAntes1.Name = "pbAntes1";
-            this.pbAntes1.Size = new System.Drawing.Size(224, 150);
-            this.pbAntes1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbAntes1.TabIndex = 20;
-            this.pbAntes1.TabStop = false;
-            // 
-            // pbDespues2
-            // 
-            this.pbDespues2.Location = new System.Drawing.Point(812, 616);
-            this.pbDespues2.Name = "pbDespues2";
-            this.pbDespues2.Size = new System.Drawing.Size(224, 150);
-            this.pbDespues2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbDespues2.TabIndex = 23;
-            this.pbDespues2.TabStop = false;
-            // 
-            // pbDespues1
-            // 
-            this.pbDespues1.Location = new System.Drawing.Point(812, 418);
-            this.pbDespues1.Name = "pbDespues1";
-            this.pbDespues1.Size = new System.Drawing.Size(224, 150);
-            this.pbDespues1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbDespues1.TabIndex = 22;
-            this.pbDespues1.TabStop = false;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -802,12 +644,181 @@ namespace Sistema
             this.dataGridViewTextBoxColumn39.ReadOnly = true;
             this.dataGridViewTextBoxColumn39.Width = 125;
             // 
+            // pbDNIFrente
+            // 
+            this.pbDNIFrente.Location = new System.Drawing.Point(75, 418);
+            this.pbDNIFrente.Name = "pbDNIFrente";
+            this.pbDNIFrente.Size = new System.Drawing.Size(224, 150);
+            this.pbDNIFrente.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDNIFrente.TabIndex = 5;
+            this.pbDNIFrente.TabStop = false;
+            // 
+            // txtNroSuministro
+            // 
+            this.txtNroSuministro.BackColor = System.Drawing.Color.SkyBlue;
+            this.txtNroSuministro.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtNroSuministro.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNroSuministro.ForeColor = System.Drawing.Color.Blue;
+            this.txtNroSuministro.Location = new System.Drawing.Point(109, 374);
+            this.txtNroSuministro.Name = "txtNroSuministro";
+            this.txtNroSuministro.ReadOnly = true;
+            this.txtNroSuministro.Size = new System.Drawing.Size(108, 23);
+            this.txtNroSuministro.TabIndex = 6;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(24, 374);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(79, 23);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Nº SUM:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(151, 396);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(80, 19);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "DNI Frente";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(151, 594);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(78, 19);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "DNI Dorso";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(385, 396);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(97, 19);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "Firma Cliente";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(647, 594);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 19);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Antes 2";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(647, 396);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 19);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Antes 1";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(887, 594);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(76, 19);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Después 2";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(887, 396);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(76, 19);
+            this.label10.TabIndex = 15;
+            this.label10.Text = "Después 1";
+            // 
+            // pbDNIDorso
+            // 
+            this.pbDNIDorso.Location = new System.Drawing.Point(75, 616);
+            this.pbDNIDorso.Name = "pbDNIDorso";
+            this.pbDNIDorso.Size = new System.Drawing.Size(224, 150);
+            this.pbDNIDorso.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDNIDorso.TabIndex = 17;
+            this.pbDNIDorso.TabStop = false;
+            // 
+            // pbFirma
+            // 
+            this.pbFirma.Location = new System.Drawing.Point(324, 418);
+            this.pbFirma.Name = "pbFirma";
+            this.pbFirma.Size = new System.Drawing.Size(224, 150);
+            this.pbFirma.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbFirma.TabIndex = 18;
+            this.pbFirma.TabStop = false;
+            // 
+            // pbAntes2
+            // 
+            this.pbAntes2.Location = new System.Drawing.Point(567, 616);
+            this.pbAntes2.Name = "pbAntes2";
+            this.pbAntes2.Size = new System.Drawing.Size(224, 150);
+            this.pbAntes2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAntes2.TabIndex = 21;
+            this.pbAntes2.TabStop = false;
+            // 
+            // pbAntes1
+            // 
+            this.pbAntes1.Location = new System.Drawing.Point(567, 418);
+            this.pbAntes1.Name = "pbAntes1";
+            this.pbAntes1.Size = new System.Drawing.Size(224, 150);
+            this.pbAntes1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbAntes1.TabIndex = 20;
+            this.pbAntes1.TabStop = false;
+            // 
+            // pbDespues2
+            // 
+            this.pbDespues2.Location = new System.Drawing.Point(812, 616);
+            this.pbDespues2.Name = "pbDespues2";
+            this.pbDespues2.Size = new System.Drawing.Size(224, 150);
+            this.pbDespues2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDespues2.TabIndex = 23;
+            this.pbDespues2.TabStop = false;
+            // 
+            // pbDespues1
+            // 
+            this.pbDespues1.Location = new System.Drawing.Point(812, 418);
+            this.pbDespues1.Name = "pbDespues1";
+            this.pbDespues1.Size = new System.Drawing.Size(224, 150);
+            this.pbDespues1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDespues1.TabIndex = 22;
+            this.pbDespues1.TabStop = false;
+            // 
+            // btnGenerarPDF
+            // 
+            this.btnGenerarPDF.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerarPDF.Image")));
+            this.btnGenerarPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarPDF.Location = new System.Drawing.Point(1129, 500);
+            this.btnGenerarPDF.Name = "btnGenerarPDF";
+            this.btnGenerarPDF.Size = new System.Drawing.Size(93, 50);
+            this.btnGenerarPDF.TabIndex = 24;
+            this.btnGenerarPDF.Text = "&Aceptar";
+            this.btnGenerarPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerarPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
+            // 
             // frmSuministros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1340, 794);
+            this.Controls.Add(this.btnGenerarPDF);
             this.Controls.Add(this.pbDespues2);
             this.Controls.Add(this.pbDespues1);
             this.Controls.Add(this.pbAntes2);
@@ -928,5 +939,6 @@ namespace Sistema
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private System.Windows.Forms.Button btnGenerarPDF;
     }
 }
