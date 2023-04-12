@@ -1,8 +1,8 @@
-﻿using CAD;
+﻿using CADSistema;
 using System;
 using System.Windows.Forms;
 
-namespace WIN
+namespace Sistema
 {
     public partial class frmLogin : Form
     {
@@ -11,16 +11,12 @@ namespace WIN
             InitializeComponent();
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
+        private void btnCancelar_Click(object sender, EventArgs e)
         {
-            txtUsuario.Text = "GPRIETO";
-            txtClave.Text = "CELESTE";
+            Close();
         }
 
-
-
-
-        private void btnAceptar_Click_1(object sender, EventArgs e)
+        private void btnAceptar_Click(object sender, EventArgs e)
         {
             errorProvider1.Clear();
             if (txtUsuario.Text == string.Empty)
@@ -31,12 +27,11 @@ namespace WIN
             }
             if (txtClave.Text == string.Empty)
             {
-                errorProvider1.SetError(txtClave, "Debe ingresar una Contraseña");
+                errorProvider1.SetError(txtClave, "Debe ingresar una Clave");
                 txtClave.Focus();
                 return;
             }
-
-            if (!CADUsuarios.ValidaUsuario(txtUsuario.Text, txtClave.Text))
+            if (!CADUsuario.ValidaUsuario(txtUsuario.Text, txtClave.Text))
             {
                 MessageBox.Show("Usuario o Clave no válidos", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 txtUsuario.Text = string.Empty;
@@ -50,11 +45,9 @@ namespace WIN
             this.Hide();
         }
 
-    
-
-    private void btnCancelar_Click_1(object sender, EventArgs e)
+        private void frmLogin_Load(object sender, EventArgs e)
         {
-            this.Close();
+
         }
     }
 }

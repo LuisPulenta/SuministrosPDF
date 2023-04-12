@@ -1,11 +1,10 @@
-﻿using CAD.DSSuministrosPDFTableAdapters;
+﻿using CADSistema.DSSistemaTableAdapters;
 
-namespace CAD
+namespace CADSistema
 {
-    public class CADUsuarios
+    public class CADUsuario
     {
         private static UsuariosTableAdapter adaptador = new UsuariosTableAdapter();
-
         public static bool ValidaUsuario(string IDUsuario, string Clave)
         {
             if (adaptador.ValidaUsuario(IDUsuario, Clave) == null)
@@ -17,6 +16,5 @@ namespace CAD
                 return true;
             }
         }
-
     }
 }
