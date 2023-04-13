@@ -184,6 +184,20 @@
         RK5CYII=
 </value>
   </data>
+  <data name="btnGenerarTodosPDF.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAVCAYAAABG1c6oAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAS
+        dAAAEnQB3mYfeAAAAcNJREFUOE/tVMtKQlEUveAkP6FBfkQf0LRJfUODGgQRNGzWRCKQSu1lpYYghZOg
+        QYMoCEosIjFII/NREmSEmo8e9oDVWZt70oRGNWjQhnVZZ+19197nnsM1/IaB38S/4c9h+NRjTmHWBPmi
+        AvUFU9M6114FvsgandNYUjBY+HB9jfuzM1QvL3F3dIT9/n5MKT0TDKKcTIpeiseRcLnEcF4hMjiISjqN
+        aiaDajaLeqGAre5uGDMqyaikUki43WLM2O7txV0kIjzhdOJqfV04g9PFxsaEn3s8SPp8yIZC2OjsbBie
+        Ohwy1bi5TgUCuNnZwXOxiEmlcUsrFovk2PhweFj4hNIdJtjo0zDp9cp2tnt6ZH1ityO/u4uXclnM+N2c
+        Cu/1Om7DYdlya4Q6OhqGzfGUz4N6IRpFvVQSI3Z3mbWZ1VUcDA0J3+vrQ3hgAIcjIwhYrQ3DC78fgbY2
+        OV1qRDEWw2uthpDNhs2uLtTU4TDW2ttxPDoqnNN7FPTN+DRMqxPliXPb+io95HKS0/H2+CjGnDQ+PS0a
+        rwrrv9xDissKzQlyauxMcBI21wbMad78nhi2ihrNudb8d/r/3+bn+OuGBj4AxVNK1+ZQcgkAAAAASUVO
+        RK5CYII=
+</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

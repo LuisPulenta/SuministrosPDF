@@ -102,7 +102,8 @@ namespace Sistema
             this.pbAntes1 = new System.Windows.Forms.PictureBox();
             this.pbDespues2 = new System.Windows.Forms.PictureBox();
             this.pbDespues1 = new System.Windows.Forms.PictureBox();
-            this.btnGenerarPDF = new System.Windows.Forms.Button();
+            
+            this.btnGenerarTodosPDF = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dSSistema)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obrasNuevoSuministrosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obrasNuevoSuministrosBindingNavigator)).BeginInit();
@@ -799,18 +800,20 @@ namespace Sistema
             this.pbDespues1.TabIndex = 22;
             this.pbDespues1.TabStop = false;
             // 
-            // btnGenerarPDF
+           
             // 
-            this.btnGenerarPDF.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerarPDF.Image")));
-            this.btnGenerarPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGenerarPDF.Location = new System.Drawing.Point(1129, 500);
-            this.btnGenerarPDF.Name = "btnGenerarPDF";
-            this.btnGenerarPDF.Size = new System.Drawing.Size(93, 50);
-            this.btnGenerarPDF.TabIndex = 24;
-            this.btnGenerarPDF.Text = "&Aceptar";
-            this.btnGenerarPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGenerarPDF.UseVisualStyleBackColor = true;
-            this.btnGenerarPDF.Click += new System.EventHandler(this.btnGenerarPDF_Click);
+            // btnGenerarTodosPDF
+            // 
+            this.btnGenerarTodosPDF.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerarTodosPDF.Image")));
+            this.btnGenerarTodosPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarTodosPDF.Location = new System.Drawing.Point(1057, 538);
+            this.btnGenerarTodosPDF.Name = "btnGenerarTodosPDF";
+            this.btnGenerarTodosPDF.Size = new System.Drawing.Size(146, 75);
+            this.btnGenerarTodosPDF.TabIndex = 25;
+            this.btnGenerarTodosPDF.Text = "G&enerar PDF de todos los Suministros";
+            this.btnGenerarTodosPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerarTodosPDF.UseVisualStyleBackColor = true;
+            this.btnGenerarTodosPDF.Click += new System.EventHandler(this.btnGenerarTodosPDF_Click);
             // 
             // frmSuministros
             // 
@@ -818,7 +821,8 @@ namespace Sistema
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1340, 794);
-            this.Controls.Add(this.btnGenerarPDF);
+            this.Controls.Add(this.btnGenerarTodosPDF);
+            
             this.Controls.Add(this.pbDespues2);
             this.Controls.Add(this.pbDespues1);
             this.Controls.Add(this.pbAntes2);
@@ -939,6 +943,7 @@ namespace Sistema
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private System.Windows.Forms.Button btnGenerarPDF;
+        
+        private System.Windows.Forms.Button btnGenerarTodosPDF;
     }
 }
