@@ -19,6 +19,7 @@ namespace Sistema
         String Ruta = "C://Rowing/";
         WebClient client = new WebClient();
         String NombreArchivo = "";
+        Suministro _suministro = new Suministro();
 
         private static readonly string _dataDir = "..\\Samples";
         public frmSuministros()
@@ -149,6 +150,51 @@ namespace Sistema
             String imageUrlDespues1 = "";
             String imageUrlDespues2 = "";
 
+            
+            _suministro.ANTESFOTO1 = (string)dgvDatos.Rows[e.RowIndex].Cells[4].Value;
+            _suministro.ANTESFOTO2 = (string)dgvDatos.Rows[e.RowIndex].Cells[5].Value;
+            _suministro.APELLIDONOMBRE = (string)dgvDatos.Rows[e.RowIndex].Cells[9].Value;
+            _suministro.BARRIO = (string)dgvDatos.Rows[e.RowIndex].Cells[17].Value;
+            _suministro.CAUSANTEC = "";
+            _suministro.CONEXIONDIRECTA = (string)dgvDatos.Rows[e.RowIndex].Cells[27].Value;
+            _suministro.CORTE = (string)dgvDatos.Rows[e.RowIndex].Cells[23].Value;
+            _suministro.CUADRILLA = (string)dgvDatos.Rows[e.RowIndex].Cells[13].Value;
+            _suministro.DENUNCIA = (string)dgvDatos.Rows[e.RowIndex].Cells[24].Value;
+            _suministro.DESPUESFOTO1 = (string)dgvDatos.Rows[e.RowIndex].Cells[6].Value;
+            _suministro.DESPUESFOTO2 = (string)dgvDatos.Rows[e.RowIndex].Cells[7].Value;
+            _suministro.DIRECTA = "";
+            _suministro.DNI = (string)dgvDatos.Rows[e.RowIndex].Cells[10].Value;
+            _suministro.DOMICILIO = (string)dgvDatos.Rows[e.RowIndex].Cells[14].Value;
+            _suministro.EMAIL = (string)dgvDatos.Rows[e.RowIndex].Cells[12].Value;
+            _suministro.ENRE = (string)dgvDatos.Rows[e.RowIndex].Cells[25].Value;
+            _suministro.ENTRECALLES1 = (string)dgvDatos.Rows[e.RowIndex].Cells[15].Value;
+            _suministro.ENTRECALLES2 = (string)dgvDatos.Rows[e.RowIndex].Cells[16].Value;
+            _suministro.FECHA = (DateTime)dgvDatos.Rows[e.RowIndex].Cells[8].Value;
+            _suministro.FIRMACLIENTE = (string)dgvDatos.Rows[e.RowIndex].Cells[3].Value;
+            _suministro.FOTODNIFRENTE = (string)dgvDatos.Rows[e.RowIndex].Cells[1].Value;
+            _suministro.FOTODNIREVERSO = (string)dgvDatos.Rows[e.RowIndex].Cells[2].Value;
+            _suministro.GRUPOC = "";
+            _suministro.IDCERTIFBAREMO = 0;
+            _suministro.IDCERTIFMATERIALES = 0;
+            _suministro.IDUserCarga = 0;
+            _suministro.KITNRO = 0;
+            _suministro.LOCALIDAD = (string)dgvDatos.Rows[e.RowIndex].Cells[18].Value;
+            _suministro.MEDIDORCOLOCADO = (string)dgvDatos.Rows[e.RowIndex].Cells[20].Value;
+            _suministro.MEDIDORVECINO = (string)dgvDatos.Rows[e.RowIndex].Cells[21].Value;
+            _suministro.MTSCABLERETIRADO = (int)dgvDatos.Rows[e.RowIndex].Cells[30].Value;
+            _suministro.NROOBRA = 0;
+            _suministro.NROSUMINISTRO = (int)dgvDatos.Rows[e.RowIndex].Cells[0].Value;
+            _suministro.OBSERVACIONES = (string)dgvDatos.Rows[e.RowIndex].Cells[33].Value;
+            _suministro.OTRO = (string)dgvDatos.Rows[e.RowIndex].Cells[26].Value;
+            _suministro.PARTIDO = (string)dgvDatos.Rows[e.RowIndex].Cells[19].Value;
+            _suministro.POSTEPODRIDO = (string)dgvDatos.Rows[e.RowIndex].Cells[32].Value;
+            _suministro.POTENCIACONTRATADA = (int)dgvDatos.Rows[e.RowIndex].Cells[34].Value;
+            _suministro.RETIROCONEXION = (string)dgvDatos.Rows[e.RowIndex].Cells[28].Value;
+            _suministro.RETIROCRUCECALLE = (string)dgvDatos.Rows[e.RowIndex].Cells[29].Value;
+            _suministro.TELEFONO = (string)dgvDatos.Rows[e.RowIndex].Cells[11].Value;
+            _suministro.TENSIONCONTRATADA = (int)dgvDatos.Rows[e.RowIndex].Cells[35].Value;
+            _suministro.TIPORED = (string)dgvDatos.Rows[e.RowIndex].Cells[22].Value;
+            _suministro.TRABAJOCONHIDRO = (string)dgvDatos.Rows[e.RowIndex].Cells[31].Value;
 
             String parcialImageUrlDNIFrente = dgvDatos.Rows[e.RowIndex].Cells[1].Value.ToString();
             String parcialImageUrlDNIDorso = dgvDatos.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -244,193 +290,15 @@ namespace Sistema
             }
         }
 
-        private void btnGenerarPDF_Click(object sender, EventArgs e)
+        private void btnGenerarPDF2_Click(object sender, EventArgs e)
         {
             if (txtNroSuministro.Text == "")
             {
                 MessageBox.Show("Debe seleccionar un Suministro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            //**************************************************************************************************************
 
-
-            NombreArchivo = "Suministro N° " + txtNroSuministro.Text + ".pdf";
-
-            // Creamos el documento con el tamaño de página tradicional
-            Document doc = new Document(PageSize.A4);
-            // Indicamos donde vamos a guardar el documento
-            PdfWriter writer = PdfWriter.GetInstance(doc,
-                                        new FileStream(@Ruta + NombreArchivo, FileMode.Create));
-
-            // Abrimos el archivo
-            doc.Open();
-
-            // Creamos el tipo de Font que vamos utilizar
-            iTextSharp.text.Font _standardFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 8, iTextSharp.text.Font.NORMAL, BaseColor.BLACK);
-
-            // Creamos la imagen y le ajustamos el tamaño
-            iTextSharp.text.Image logo = iTextSharp.text.Image.GetInstance("C://Rowing//logo.png");
-            logo.BorderWidth = 0;
-            logo.Alignment = Element.ALIGN_RIGHT;
-            float percentage = 0.0f;
-            percentage = 150 / logo.Width;
-            logo.ScalePercent(percentage * 100);
-
-            // Insertamos la imagen en el documento
-            doc.Add(logo);
-            doc.Add(Chunk.NEWLINE);
-
-            // Escribimos el encabezamiento en el documento
-            doc.Add(new Paragraph("SUMINISTRO N° " + txtNroSuministro.Text));
-            doc.Add(Chunk.NEWLINE);
-
-
-
-            Paragraph title = new Paragraph();
-            title.Font = FontFactory.GetFont(FontFactory.TIMES, 18f, BaseColor.BLUE);
-            title.Add("Hola Mundo!!");
-            doc.Add(title);
-
-
-            doc.Add(new Paragraph("Hola Mundo!!"));
-            doc.Add(new Paragraph("Parrafo 1"));
-            doc.Add(new Paragraph("Parrafo 2"));
-
-            // Creamos una tabla que contendrá el nombre, apellido y país
-            // de nuestros visitante.
-            PdfPTable tblPrueba = new PdfPTable(3);
-            tblPrueba.WidthPercentage = 100;
-
-            // Configuramos el título de las columnas de la tabla
-            PdfPCell clNombre = new PdfPCell(new Phrase("Nombre", _standardFont));
-            clNombre.BorderWidth = 0;
-            clNombre.BorderWidthBottom = 0.75f;
-
-            PdfPCell clApellido = new PdfPCell(new Phrase("Apellido", _standardFont));
-            clApellido.BorderWidth = 0;
-            clApellido.BorderWidthBottom = 0.75f;
-
-            PdfPCell clPais = new PdfPCell(new Phrase("País", _standardFont));
-            clPais.BorderWidth = 0;
-            clPais.BorderWidthBottom = 0.75f;
-
-            // Añadimos las celdas a la tabla
-            tblPrueba.AddCell(clNombre);
-            tblPrueba.AddCell(clApellido);
-            tblPrueba.AddCell(clPais);
-
-            // Llenamos la tabla con información
-            clNombre = new PdfPCell(new Phrase("Roberto", _standardFont));
-            clNombre.BorderWidth = 0;
-
-            clApellido = new PdfPCell(new Phrase("Torres", _standardFont));
-            clApellido.BorderWidth = 0;
-
-            clPais = new PdfPCell(new Phrase("Puerto Rico", _standardFont));
-            clPais.BorderWidth = 0;
-
-            // Añadimos las celdas a la tabla
-            tblPrueba.AddCell(clNombre);
-            tblPrueba.AddCell(clApellido);
-            tblPrueba.AddCell(clPais);
-
-
-            // Finalmente, añadimos la tabla al documento PDF y cerramos el documento
-            doc.Add(tblPrueba);
-
-
-            var ancho = 50;
-            //DNI Frente
-            // Creamos la imagen y le ajustamos el tamaño
-            doc.Add(new Paragraph("DNI Frente"));
-            iTextSharp.text.Image DNIFrente = iTextSharp.text.Image.GetInstance("C://Rowing//DNIFrente.png");
-            DNIFrente.BorderWidth = 0;
-            DNIFrente.Alignment = Element.ALIGN_LEFT;
-            percentage = ancho / DNIFrente.Width;
-            DNIFrente.ScalePercent(percentage * 100);
-            // Insertamos la imagen en el documento
-            doc.Add(DNIFrente);
-            doc.Add(Chunk.NEWLINE);
-
-            //DNI Dorso
-            // Creamos la imagen y le ajustamos el tamaño
-            doc.Add(new Paragraph("DNI Dorso"));
-            iTextSharp.text.Image DNIDorso = iTextSharp.text.Image.GetInstance("C://Rowing//DNIDorso.png");
-            DNIDorso.BorderWidth = 0;
-            DNIDorso.Alignment = Element.ALIGN_LEFT;
-            percentage = ancho / DNIDorso.Width;
-            DNIDorso.ScalePercent(percentage * 100);
-            // Insertamos la imagen en el documento
-            doc.Add(DNIDorso);
-            doc.Add(Chunk.NEWLINE);
-
-            //Firma
-            // Creamos la imagen y le ajustamos el tamaño
-            doc.Add(new Paragraph("Firma"));
-            iTextSharp.text.Image Firma = iTextSharp.text.Image.GetInstance("C://Rowing//Firma.png");
-            Firma.BorderWidth = 0;
-            Firma.Alignment = Element.ALIGN_LEFT;
-            percentage = ancho / Firma.Width;
-            Firma.ScalePercent(percentage * 100);
-            // Insertamos la imagen en el documento
-            doc.Add(Firma);
-            doc.Add(Chunk.NEWLINE);
-
-            //Antes1
-            // Creamos la imagen y le ajustamos el tamaño
-            doc.Add(new Paragraph("Antes 1"));
-            iTextSharp.text.Image Antes1 = iTextSharp.text.Image.GetInstance("C://Rowing//Antes1.png");
-            Antes1.BorderWidth = 0;
-            Antes1.Alignment = Element.ALIGN_LEFT;
-            percentage = ancho / Antes1.Width;
-            Antes1.ScalePercent(percentage * 100);
-            // Insertamos la imagen en el documento
-            doc.Add(Antes1);
-            doc.Add(Chunk.NEWLINE);
-
-            //Antes2
-            // Creamos la imagen y le ajustamos el tamaño
-            doc.Add(new Paragraph("Antes 2"));
-            iTextSharp.text.Image Antes2 = iTextSharp.text.Image.GetInstance("C://Rowing//Antes2.png");
-            Antes2.BorderWidth = 0;
-            Antes2.Alignment = Element.ALIGN_LEFT;
-            percentage = ancho / Antes2.Width;
-            Antes2.ScalePercent(percentage * 100);
-            // Insertamos la imagen en el documento
-            doc.Add(Antes2);
-            doc.Add(Chunk.NEWLINE);
-
-            //Despues1
-            // Creamos la imagen y le ajustamos el tamaño
-            doc.Add(new Paragraph("Despues 1"));
-            iTextSharp.text.Image Despues1 = iTextSharp.text.Image.GetInstance("C://Rowing//Despues1.png");
-            Despues1.BorderWidth = 0;
-            Despues1.Alignment = Element.ALIGN_LEFT;
-            percentage = ancho / Despues1.Width;
-            Despues1.ScalePercent(percentage * 100);
-            // Insertamos la imagen en el documento
-            doc.Add(Despues1);
-            doc.Add(Chunk.NEWLINE);
-
-            //Despues2
-            // Creamos la imagen y le ajustamos el tamaño
-            doc.Add(new Paragraph("Despues 2"));
-            iTextSharp.text.Image Despues2 = iTextSharp.text.Image.GetInstance("C://Rowing//Despues2.png");
-            Despues2.BorderWidth = 0;
-            Despues2.Alignment = Element.ALIGN_LEFT;
-            percentage = ancho / Despues2.Width;
-            Despues2.ScalePercent(percentage * 100);
-            // Insertamos la imagen en el documento
-            doc.Add(Despues2);
-            doc.Add(Chunk.NEWLINE);
-
-            doc.Close();
-            writer.Close();
-
-
-
-            //**************************************************************************************************************
-
+            btnGenerarPDF(_suministro);
             MessageBox.Show("PDF grabado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 

@@ -102,8 +102,8 @@ namespace Sistema
             this.pbAntes1 = new System.Windows.Forms.PictureBox();
             this.pbDespues2 = new System.Windows.Forms.PictureBox();
             this.pbDespues1 = new System.Windows.Forms.PictureBox();
-            
             this.btnGenerarTodosPDF = new System.Windows.Forms.Button();
+            this.btnGenerarPDF2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dSSistema)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obrasNuevoSuministrosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.obrasNuevoSuministrosBindingNavigator)).BeginInit();
@@ -124,7 +124,7 @@ namespace Sistema
             this.label1.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 46);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 19);
+            this.label1.Size = new System.Drawing.Size(53, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "FECHA:";
             // 
@@ -150,6 +150,7 @@ namespace Sistema
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.Connection = null;
+            this.tableAdapterManager.ObrasNuevoSuministrosTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = Sistema.DSSistemaTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             // 
             // obrasNuevoSuministrosBindingNavigator
@@ -176,14 +177,14 @@ namespace Sistema
             this.obrasNuevoSuministrosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.obrasNuevoSuministrosBindingNavigator.Name = "obrasNuevoSuministrosBindingNavigator";
             this.obrasNuevoSuministrosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.obrasNuevoSuministrosBindingNavigator.Size = new System.Drawing.Size(1340, 27);
+            this.obrasNuevoSuministrosBindingNavigator.Size = new System.Drawing.Size(1340, 31);
             this.obrasNuevoSuministrosBindingNavigator.TabIndex = 4;
             this.obrasNuevoSuministrosBindingNavigator.Text = "bindingNavigator1";
             // 
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 24);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(48, 28);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
             // 
@@ -193,7 +194,7 @@ namespace Sistema
             this.bindingNavigatorMoveFirstItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveFirstItem.Image")));
             this.bindingNavigatorMoveFirstItem.Name = "bindingNavigatorMoveFirstItem";
             this.bindingNavigatorMoveFirstItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveFirstItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveFirstItem.Text = "Mover primero";
             // 
             // bindingNavigatorMovePreviousItem
@@ -202,13 +203,13 @@ namespace Sistema
             this.bindingNavigatorMovePreviousItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMovePreviousItem.Image")));
             this.bindingNavigatorMovePreviousItem.Name = "bindingNavigatorMovePreviousItem";
             this.bindingNavigatorMovePreviousItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMovePreviousItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMovePreviousItem.Text = "Mover anterior";
             // 
             // bindingNavigatorSeparator
             // 
             this.bindingNavigatorSeparator.Name = "bindingNavigatorSeparator";
-            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorPositionItem
             // 
@@ -223,7 +224,7 @@ namespace Sistema
             // bindingNavigatorSeparator1
             // 
             this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
-            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 31);
             // 
             // bindingNavigatorMoveNextItem
             // 
@@ -231,7 +232,7 @@ namespace Sistema
             this.bindingNavigatorMoveNextItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveNextItem.Image")));
             this.bindingNavigatorMoveNextItem.Name = "bindingNavigatorMoveNextItem";
             this.bindingNavigatorMoveNextItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveNextItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveNextItem.Text = "Mover siguiente";
             // 
             // bindingNavigatorMoveLastItem
@@ -240,13 +241,13 @@ namespace Sistema
             this.bindingNavigatorMoveLastItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorMoveLastItem.Image")));
             this.bindingNavigatorMoveLastItem.Name = "bindingNavigatorMoveLastItem";
             this.bindingNavigatorMoveLastItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 24);
+            this.bindingNavigatorMoveLastItem.Size = new System.Drawing.Size(29, 28);
             this.bindingNavigatorMoveLastItem.Text = "Mover último";
             // 
             // bindingNavigatorSeparator2
             // 
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
-            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 27);
+            this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 31);
             // 
             // dgvDatos
             // 
@@ -682,7 +683,7 @@ namespace Sistema
             this.label3.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(151, 396);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 19);
+            this.label3.Size = new System.Drawing.Size(75, 17);
             this.label3.TabIndex = 9;
             this.label3.Text = "DNI Frente";
             // 
@@ -692,7 +693,7 @@ namespace Sistema
             this.label4.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(151, 594);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(78, 19);
+            this.label4.Size = new System.Drawing.Size(73, 17);
             this.label4.TabIndex = 10;
             this.label4.Text = "DNI Dorso";
             // 
@@ -702,7 +703,7 @@ namespace Sistema
             this.label6.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(385, 396);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(97, 19);
+            this.label6.Size = new System.Drawing.Size(90, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Firma Cliente";
             // 
@@ -712,7 +713,7 @@ namespace Sistema
             this.label7.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(647, 594);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(58, 19);
+            this.label7.Size = new System.Drawing.Size(54, 17);
             this.label7.TabIndex = 14;
             this.label7.Text = "Antes 2";
             // 
@@ -722,7 +723,7 @@ namespace Sistema
             this.label8.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(647, 396);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 19);
+            this.label8.Size = new System.Drawing.Size(54, 17);
             this.label8.TabIndex = 13;
             this.label8.Text = "Antes 1";
             // 
@@ -732,7 +733,7 @@ namespace Sistema
             this.label9.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(887, 594);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(76, 19);
+            this.label9.Size = new System.Drawing.Size(71, 17);
             this.label9.TabIndex = 16;
             this.label9.Text = "Después 2";
             // 
@@ -742,7 +743,7 @@ namespace Sistema
             this.label10.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(887, 396);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 19);
+            this.label10.Size = new System.Drawing.Size(71, 17);
             this.label10.TabIndex = 15;
             this.label10.Text = "Después 1";
             // 
@@ -800,8 +801,6 @@ namespace Sistema
             this.pbDespues1.TabIndex = 22;
             this.pbDespues1.TabStop = false;
             // 
-           
-            // 
             // btnGenerarTodosPDF
             // 
             this.btnGenerarTodosPDF.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerarTodosPDF.Image")));
@@ -815,14 +814,27 @@ namespace Sistema
             this.btnGenerarTodosPDF.UseVisualStyleBackColor = true;
             this.btnGenerarTodosPDF.Click += new System.EventHandler(this.btnGenerarTodosPDF_Click);
             // 
+            // btnGenerarPDF2
+            // 
+            this.btnGenerarPDF2.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerarPDF2.Image")));
+            this.btnGenerarPDF2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarPDF2.Location = new System.Drawing.Point(1057, 443);
+            this.btnGenerarPDF2.Name = "btnGenerarPDF2";
+            this.btnGenerarPDF2.Size = new System.Drawing.Size(146, 75);
+            this.btnGenerarPDF2.TabIndex = 26;
+            this.btnGenerarPDF2.Text = "&Generar PDF de Suministro Seleccionado";
+            this.btnGenerarPDF2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerarPDF2.UseVisualStyleBackColor = true;
+            this.btnGenerarPDF2.Click += new System.EventHandler(this.btnGenerarPDF2_Click);
+            // 
             // frmSuministros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SkyBlue;
             this.ClientSize = new System.Drawing.Size(1340, 794);
+            this.Controls.Add(this.btnGenerarPDF2);
             this.Controls.Add(this.btnGenerarTodosPDF);
-            
             this.Controls.Add(this.pbDespues2);
             this.Controls.Add(this.pbDespues1);
             this.Controls.Add(this.pbAntes2);
@@ -945,5 +957,6 @@ namespace Sistema
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
         
         private System.Windows.Forms.Button btnGenerarTodosPDF;
+        private System.Windows.Forms.Button btnGenerarPDF2;
     }
 }
